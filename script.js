@@ -1,22 +1,22 @@
-const minus = document.getElementById('decrement');
-const plus = document.getElementById('increment');
+const input = document.getElementById('increment');
+const add = document.getElementById('add');
+const subtract = document.getElementById('subtract');
 const reset = document.getElementById('reset');
-const display = document.getElementById('count')
-let ctr = display.innerText;
+const display = document.getElementById('number');
+let by = 0;
+let curr = 0;
 
-minus.addEventListener('click', function(e){
-    if(ctr>0){
-        ctr--;
-        display.innerText = ctr;
-    }
+add.addEventListener('click', function(e){
+    by = +input.value;
+    curr = by + parseInt(display.innerText, 10);
+    display.innerText = curr;
 });
-
-plus.addEventListener('click', function(e){
-    ctr++;
-    display.innerText = ctr;
+subtract.addEventListener('click', function(e){
+    by = +input.value;
+    curr = parseInt(display.innerText, 10) - by;
+    display.innerText = curr;
 });
-
 reset.addEventListener('click', function(e){
-    ctr = 0;
-    display.innerText=ctr;
+    curr = 0;
+    display.innerText = 0;
 });
